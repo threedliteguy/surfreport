@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.threedlite.surfreport"
+    android:versionCode="1"
+    android:versionName="1" >
+   
+    <uses-sdk android:minSdkVersion="11" />
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+     
+    <application android:label="Surf Report"
+                android:icon="@drawable/ic_launcher"
+        >
+        
+    <receiver android:name="SurfReportWidgetProvider">
+        <intent-filter>
+            <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+        </intent-filter>
+        <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widgetinfo" />
+    </receiver>
+    
+    <service android:name="SurfReportWidgetService" 
+        android:permission="android.permission.BIND_REMOTEVIEWS"
+        android:exported="false" 
+        />
+   
+    </application>
+</manifest>
